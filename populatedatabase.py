@@ -3,7 +3,11 @@ from fetchCardData import fetchCardData
 
 def cleantext(card, param):
 	try:
-		return card[param].replace("\'", "\'\'")
+		value = card[param] 
+		if (type(value) == list):
+			return "".join(value)
+		else:
+			return value.replace("\'", "\'\'")
 	except:
 		return ''
 
